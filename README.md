@@ -14,7 +14,7 @@ There are a few modifications that you first need to make to your linux system b
 1. Connect your USB device and open the terminal with ctrl+alt+t, then type in lsusb to get a list of your usb devices. 
   - You should be able to identify your device by name, and then it should have two hex numbers in the format "1a1a:2b2b". These represent the idVendor:idProduct indices respectively, and you are going to need them for the next step. 
   - These ID numbers can be anything of the same format as shown, and you CAN convert them to decimal if you really want to. It's still more convenient to use the hex format, since it requires no conversion. 
-    - *NOTE: If you want to use these in python scripts, then you must preface them with 0x (so 0x1a1a and 0x2b2b), or else it will not recognise that they are hexadecimal. If you converted the numbers to decimal, then this is not required.* 
+  - *NOTE: If you want to use these in python scripts, then you must preface them with 0x (so 0x1a1a and 0x2b2b), or else it will not recognise that they are hexadecimal. If you converted the numbers to decimal, then this is not required.* 
   
 2. Now you need to make a udev rule, which is a text document containing exceptions (or rules, if you may) of which devices a non root user may access completely, so that you don't run into the `[Errno 13] Access denied (insufficient permissions)` error code when trying to access your device.
 
