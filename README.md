@@ -5,7 +5,7 @@ Ubuntu is a must, but there are several things that you need to do before you ge
 
 =================================================================================
 
-**------------------------------- Allowing ubuntu to take control of your USB device -------------------------------**
+**----------------------------------------- Allowing ubuntu to take control of your USB device -----------------------------------------**
 
 =================================================================================
 
