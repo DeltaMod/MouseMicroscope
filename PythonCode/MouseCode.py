@@ -62,14 +62,14 @@ Pixel_Burst                     = 0x64
 import matplotlib.pyplot as plt
 import numpy as np
 
-VENDOR_ID = 0x04D9 #Tecknet mouse VID
-PRODUCT_ID = 0xA118 #Tecknet mouse PID
+#VENDOR_ID = 0x04D9 #Tecknet mouse VID
+#PRODUCT_ID = 0xA118 #Tecknet mouse PID
 
 #VENDOR_ID = 0x1D57 #Zelotes VID
 #PRODUCT_ID = 0xAD17 #Zelotes PID
 
-#VENDOR_ID = 0x03F0 #HP mouse VID
-#PRODUCT_ID = 0x094A #HP mouse PID
+VENDOR_ID = 0x03F0 #HP mouse VID
+PRODUCT_ID = 0x094A #HP mouse PID
 # find the USB device
 dev = usb.core.find(idVendor=VENDOR_ID,
                        idProduct=PRODUCT_ID)
@@ -83,26 +83,26 @@ if dev.is_kernel_driver_active(interface) is True:
   # claim the device
   usb.util.claim_interface(dev, interface)
 # In order to read the pixel bytes, reset PIX_GRAB by sending a write command
-response = dev.ctrl_transfer(bmRequestType = 0x40, #Write - Frame Capture: 0x93  --originally was 0x40 for PIX_GRAB
+ret = dev.ctrl_transfer(bmRequestType = 0x40, #Write - Frame Capture: 0x93  --originally was 0x40 for PIX_GRAB
                                      bRequest = 0x01,
                                      wValue = 0x0000,
-                                     wIndex = 0x12, #Pixel_Burst: 0x64 Frame_Capture: 0x12 --Originally was PIX_GRAB
+                                     wIndex = 0x0D, #Pixel_Burst: 0x64 Frame_Capture: 0x12 --Originally was PIX_GRAB
                                      data_or_wLength = None
                                      )
 
 # Read all the pixels (0-899 in this chip! Because arrays start at zero... for some reason)
 pixList = []
-for i in range(900):
-    response = dev.ctrl_transfer(bmRequestType = 0xC0, #Read - Frame Capture: 0xc5  --Originally was 0xC0 for PIX_GRAB
+for i in range(361):
+    ret = dev.ctrl_transfer(bmRequestType = 0xC0, #Read - Frame Capture: 0xc5  --Originally was 0xC0 for PIX_GRAB
                                          bRequest = 0x01,
                                          wValue = 0x0000,
-                                         wIndex = 0x64, #Pixel_Burst: 0x64 Frame_Capture: 0x12 --Originally was PIX_GRAB
+                                         wIndex = 0x0D, #Pixel_Burst: 0x64 Frame_Capture: 0x12 --Originally was PIX_GRAB 
                                          data_or_wLength = 1
                                          )
     pixList.append(response)
 
 pixelArray = np.asarray(pixList)
-pixelArray = pixelArray.reshape((30,30))
+pixelArray = pixelArray.reshape((19,19)) #Probably was 30:30 for the other one
 
 plt.imshow(pixelArray)
 plt.show()

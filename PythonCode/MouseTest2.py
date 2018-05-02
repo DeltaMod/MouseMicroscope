@@ -3,8 +3,10 @@ import sys
 import usb.core
 import usb.util
 # decimal vendor and product values
-VENDOR_ID = 0x04D9 #Tecknet mouse VID
-PRODUCT_ID = 0xA118 #Tecknet mouse PIDn
+#VENDOR_ID = 0x04D9 #Tecknet mouse VID
+#PRODUCT_ID = 0xA118 #Tecknet mouse PIDn
+VENDOR_ID = 0x1D57 #Zelotes VID
+PRODUCT_ID = 0xAD17 #Zelotes PID
 interface = 0
 dev = usb.core.find(idVendor=VENDOR_ID,
                        idProduct=PRODUCT_ID)

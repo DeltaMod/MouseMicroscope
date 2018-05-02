@@ -22,10 +22,10 @@ if dev.is_kernel_driver_active(interface) is True:
   # claim the device
   usb.util.claim_interface(dev, interface)
 collected = 0
-attempts = 1
+attempts = 90
 while collected < attempts :
     try:
-        dev.read(0x64,900)
+        data = dev.read(endpoint.bEndpointAddress,endpoint.wMaxPacketSize)
         collected += 1
         print(data)
     except usb.core.USBError as e:
