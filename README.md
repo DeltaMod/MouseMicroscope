@@ -26,4 +26,4 @@ There are a few modifications that you first need to make to your linux system b
   
 3. Now, unless you are not a superuser (command: `su -`), you must add the user you intend to run your code from into the group plugdev. You can do this by simply using: `sudo adduser <username> plugdev` from a superuser account (that is, writing `su -` into the terminal before adding the user). If you are a superuser, then you don't need to add yourself because the new group is not considered root, and so you have access to it.
 
-4. Now you can unplug your device, restart ubuntu, and when you plug it back in, it should now allow you to use it with the anaconda distribution!
+4. Now you can unplug your device, restart ubuntu, and when you plug it back in, it should now allow you to use it with the anaconda distribution! Alternatively, you can simply use the command `udevadm control --reload-rules && udevadm trigger` from the terminal to reset udev.
