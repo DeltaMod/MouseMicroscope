@@ -3,11 +3,11 @@ Using a python 3.6 anaconda distribution on ubuntu 16.04, with the direct assist
 
 Ubuntu is a must, but there are several things that you need to do before you get cracking!
 
-================================================================================
+===============================================================================
 
 **--------------------------------------- Allowing ubuntu to take control of your USB device ---------------------------------------**
 
-================================================================================
+===============================================================================
 
 There are a few modifications that you first need to make to your linux system before doing anything past this!
 
