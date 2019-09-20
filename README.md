@@ -1,5 +1,5 @@
 # MouseMicroscope
-Using a python 3.6 anaconda distribution on ubuntu 16.04, with the direct assistance of libusb1 and pyusb, we indend to make a microscope out of a mouse sensor. 
+Using a python 3.6 anaconda distribution on ubuntu 16.04, with the direct assistance of libusb1 and pyusb, we indend to make a microscope out of a mouse sensor. DISCLAIMER: This project reached a dead end because none of our chips had a compatible burst mode to read data out of
 
 Ubuntu is a must, but there are several things that you need to do before you get cracking!
 <!-- language: lang-none -->
